@@ -1,0 +1,51 @@
+<nav class="navbar navbar-default navbar-fixed-top" style="background-color:#F4F7F6; border-radius:1px; color:whitesmoke;">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+      <a class="navbar-brand" style="font-weight:bolder;" href="/">  <span class="glyphicon glyphicon-home"></span> Hoodwatch</a>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+  
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav" style="font-weight:bolder;">
+              
+                   <li><a href="{%url 'createhood'%}" style="font-weight:bolder; "><span class="glyphicon glyphicon-plus"> Create-hood</span></a></li>
+                  <li class="dropdown">
+          <a class="dropdown-toggle" style="font-weight:bolder; " data-toggle="dropdown" href="#"> {{user.username}} <span class="glyphicon glyphicon-user"></span>
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/user/{{user.id}}" >View Profile</a></li>
+            {% if user.join %}
+             <li><a href="/exithood/{{user.join.hood_id}}" >Change neighbourhood</a></li>
+                {% endif %}
+            <li><a href="/logout">Logout</a></li>
+          </ul>
+        </li>
+        </ul>
+        <form class="navbar-form navbar-right" role="search"  action="{% url 'search_results' %}">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="&#xF002;  Search" name="hood" style="font-family:FontAwesome;text-align:center;">
+          </div>
+        </form>
+      </div>
+    </div>
+    
+  </nav>
+  
+  
+  <style>
+    @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+   
+   @import url('https://fonts.googleapis.com/css?family=Niramit');
+  
+   nav{
+     font-family: 'Niramit', sans-serif;
+     font-size: 18px;
+   }
+  
+    </style>
